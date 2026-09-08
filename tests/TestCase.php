@@ -13,4 +13,10 @@ class TestCase extends Orchestra
             TypeformServiceProvider::class,
         ];
     }
+
+    protected function getEnvironmentSetUp($app): void
+    {
+        $app['config']->set('typeform.api_key', 'fake-api-key');
+        $app['config']->set('typeform.base_url', 'https://api.typeform.com');
+    }
 }

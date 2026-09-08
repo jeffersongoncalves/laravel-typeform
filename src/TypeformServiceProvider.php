@@ -11,8 +11,14 @@ class TypeformServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-typeform')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigrations();
+            ->hasConfigFile();
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(Typeform::class, fn () => new Typeform(
+            apiKey: (string) config('typeform.api_key'),
+            baseUrl: (string) config('typeform.base_url'),
+        ));
     }
 }

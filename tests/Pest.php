@@ -1,3 +1,5 @@
 <?php
 
-uses(Jeffersongoncalves\Typeform\Tests\TestCase::class)->in('Feature', 'Unit');
+use Jeffersongoncalves\Typeform\Tests\TestCase;
+
+uses(TestCase::class)->in('Feature', 'Unit');
